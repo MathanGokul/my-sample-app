@@ -1,1 +1,5 @@
-<h3>'test2 component'</h3>
+<h3>EmpId :{{ empId }} test2 Name {{ getEmpName() }}</h3>
+<input type="text" class="form-control" (input)="inputData($event)">
+<p>{{ DataInput }}</p>
+<button class="btn btn-primary" [disabled]="!submit" (click)="submitData($event)">Submit</button>
+<p>{{ SubmitString }}</p>
