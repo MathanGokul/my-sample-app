@@ -1,8 +1,17 @@
 import { Component } from '@angular/core';
 
+
 @Component ({
   selector: 'app-test2',
-  templateUrl: './test2.component.html'
+  templateUrl: './test2.component.html',
+  styles: [
+    `.blue{
+      background-color:blue;
+    }
+    .green{
+      background-color:green;
+    }`
+  ]
 })
 
 export class Test2Component {
@@ -10,7 +19,7 @@ export class Test2Component {
   empName = 'Mathan';
   submit = false;
   SubmitString = 'data not submit';
-  DataInput = '';
+  DataInput = 'test';
   getEmpName() {
      return this.empName;
   }
@@ -21,13 +30,19 @@ export class Test2Component {
   }
   private submitData(event: any) {
     console.log(event);
-    this.SubmitString = 'data submitted';
+    this.SubmitString = 'data submitted '+ this.DataInput;
     this.buttonEnableDisable(false);
   }
   private inputData(event) {
-     this.DataInput = event.target.value;
+    this.DataInput = (event.target as HTMLInputElement).value;
   }
-  private buttonEnableDisable(button): boolean {
-     this.submit = button;
+  private buttonEnableDisable(button: boolean) {
+    this.submit = button;
+  }
+  private getStyle() {
+    return this.submit === true ? 'green' : 'red';
+  }
+  getClass() {
+     return this.submit;
   }
 }

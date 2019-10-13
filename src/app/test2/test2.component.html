@@ -1,5 +1,11 @@
 <h3>EmpId :{{ empId }} test2 Name {{ getEmpName() }}</h3>
 <input type="text" class="form-control" (input)="inputData($event)">
-<p>{{ DataInput }}</p>
+<input type="text" class="form-control" [(ngModel)]="DataInput"> 
+
+<p *ngIf="DataInput !==''; else emptyData">{{ DataInput }} </p>
+<ng-template #emptyData>
+<p>Empty Data :{{ DataInput }} </p>
+</ng-template>
 <button class="btn btn-primary" [disabled]="!submit" (click)="submitData($event)">Submit</button>
-<p>{{ SubmitString }}</p>
+<p [ngStyle]="{backgroundColor : getStyle() }">color: {{ SubmitString }} </p>
+<p [ngClass]="{blue : getClass(),green:!getClass() }">color: {{ SubmitString }} </p>
