@@ -20,6 +20,7 @@ export class Test2Component {
   submit = false;
   SubmitString = 'data not submit';
   DataInput = 'test';
+  repeatComponent = ['1'];
   getEmpName() {
      return this.empName;
   }
@@ -30,8 +31,9 @@ export class Test2Component {
   }
   private submitData(event: any) {
     console.log(event);
-    this.SubmitString = 'data submitted '+ this.DataInput;
+    this.SubmitString = 'data submitted ' + this.DataInput;
     this.buttonEnableDisable(false);
+    this.repeatComponent.push('8');
   }
   private inputData(event) {
     this.DataInput = (event.target as HTMLInputElement).value;
